@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinesh Kumar K - Interactive Resume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Visualization & Content Choices:
+        - Personal Info: Goal=Inform/Contact, Method=Text+Unicode Icons, Interaction=Links, Lib=HTML/Tailwind.
+        - Objective: Goal=Inform, Method=Text, Lib=HTML/Tailwind.
+        - Education: Goal=Inform, Method=Cards, Lib=HTML/Tailwind.
+        - Skills: Goal=Inform, Method=Categorized Lists + Donut Chart (Chart.js for experience distribution), Lib=HTML/Tailwind/Chart.js. Updated to include C#, Python, Java, C, C++, JavaScript, HTML, CSS, and AI Tools.
+        - Entrepreneurial Experience: Goal=Show Leadership/Business, Method=Card, Lib=HTML/Tailwind.
+        - Internships: Goal=Show Experience, Method=Cards with details, Lib=HTML/Tailwind.
+        - Projects: Goal=Show Application, Method=Cards with details, Lib=HTML/Tailwind.
+        - Achievements: Goal=Highlight, Method=List, Lib=HTML/Tailwind.
+        - Hobbies: Goal=Personality, Method=List+Unicode Icons, Lib=HTML/Tailwind.
+        Chart.js used for a simple donut chart visualizing the count of internships vs. projects. -->
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; }
+        .nav-link.active { color: #0284c7; font-weight: 600; border-bottom: 2px solid #0284c7;}
+        .section-title { border-bottom: 3px solid #0ea5e9; padding-bottom: 8px; display: inline-block; }
+        .card { background-color: white; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05); }
+        .chart-container { position: relative; width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; height: 300px; max-height: 350px; }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+    </style>
+</head>
+<body class="bg-stone-100 text-slate-700">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-sky-600">Dinesh Kumar K</a>
+            <div class="space-x-4">
+                <a href="#home" class="nav-link text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                <a href="#education" class="nav-link text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Education</a>
+                <a href="#skills" class="nav-link text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                <a href="#experience" class="nav-link text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Experience</a>
+                <a href="#achievements" class="nav-link text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Achievements</a>
+                <a href="#contact" class="nav-link text-slate-600 hover:text-sky-600 px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <section id="home" class="min-h-[calc(100vh-150px)] flex flex-col justify-center items-center text-center py-16">
+            <h1 class="text-5xl md:text-6xl font-bold text-slate-800 mb-4">DINESH KUMAR K</h1>
+            <p class="text-xl md:text-2xl text-sky-600 mb-8">Innovative IT Student & Aspiring Developer</p>
+            <div class="max-w-2xl">
+                <h2 class="text-2xl font-semibold text-slate-700 mb-3 section-title">Career Objective</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    A dedicated and innovative Information Technology student, aspiring Content Creator, Web Developer, and App Developer, seeking a challenging role in a core IT company where I can leverage my skills in AR/VR, machine learning, and software development to contribute to cutting-edge projects and drive technological innovation.
+                </p>
+            </div>
+        </section>
+
+        <section id="education" class="py-16">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12 section-title">Education</h2>
+            <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">My academic journey has provided a strong foundation in Information Technology, equipping me with the knowledge and skills to tackle complex challenges.</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-2">B.Tech, Information Technology</h3>
+                    <p class="text-slate-600 mb-1">Sri Sairam Institute of Technology, Chennai</p>
+                    <p class="text-sm text-slate-500 mb-1">2022 – Present</p>
+                    <p class="text-sm font-medium text-slate-700">CGPA: 7.8</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-2">Higher Secondary (12th)</h3>
+                    <p class="text-slate-600 mb-1">Government Higher Secondary School, Thiruvallur</p>
+                    <p class="text-sm text-slate-500 mb-1">2021</p>
+                    <p class="text-sm font-medium text-slate-700">Percentage: 80%</p>
+                </div>
+                <div class="card p-6">
+                    <h3 class="text-xl font-semibold text-sky-700 mb-2">SSLC (10th)</h3>
+                    <p class="text-slate-600 mb-1">School in Veppampattu</p>
+                    <p class="text-sm text-slate-500 mb-1">2019</p>
+                    <p class="text-sm font-medium text-slate-700">Percentage: 80%</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-16 bg-white">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12 section-title">Technical Skills</h2>
+            <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">A snapshot of my technical toolkit, covering programming languages, development tools, and my primary areas of passion within IT. This chart illustrates the distribution of my practical experiences.</p>
+            <div class="flex flex-wrap justify-around items-start gap-10">
+                <div class="w-full md:w-1/2 lg:w-2/5">
+                    <div>
+                        <h3 class="text-xl font-semibold text-sky-700 mb-3">Programming Languages</h3>
+                        <ul class="list-disc list-inside space-y-1 text-slate-600">
+                            <li>C# (Unity)</li>
+                            <li>Python</li>
+                            <li>Java</li>
+                            <li>C</li>
+                            <li>C++</li>
+                            <li>JavaScript</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold text-sky-700 mb-3">Frameworks/Tools</h3>
+                        <ul class="list-disc list-inside space-y-1 text-slate-600">
+                            <li>Unity (AR/VR development)</li>
+                            <li>Git</li>
+                            <li>AI Tools (Expertise/Intermediate Level)</li>
+                        </ul>
+                    </div>
+                    <div class="mt-6">
+                        <h3 class="text-xl font-semibold text-sky-700 mb-3">Areas of Interest</h3>
+                        <ul class="list-disc list-inside space-y-1 text-slate-600">
+                            <li>AR/VR</li>
+                            <li>Machine Learning</li>
+                            <li>Software Development</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 lg:w-2/5">
+                     <div class="chart-container">
+                        <canvas id="experienceChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-slate-500 mt-2">Chart: Distribution of Practical Experiences</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="py-16">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12 section-title">Experience</h2>
+            <p class="text-center text-slate-600 mb-10 max-w-3xl mx-auto">Here's where theory meets practice. This section details my hands-on experience through entrepreneurial ventures, internships, and significant projects, showcasing my ability to contribute to real-world applications and collaborative environments.</p>
+            
+            <div>
+                <h3 class="text-2xl font-semibold text-sky-700 mb-6 text-center">Entrepreneurial Experience</h3>
+                <div class="grid md:grid-cols-1 gap-8 mb-12">
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">Co-founder</h4>
+                        <p class="text-sky-600 font-medium mb-1">Four Friends Studio (Game Development)</p>
+                        <p class="text-sm text-slate-500 mb-3">Product-based & Service-based</p>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
+                            <li>Co-founded and contributed to a game development studio focusing on both product creation and service delivery.</li>
+                            <li>Involved in strategic planning, project execution, and team collaboration for game development initiatives.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold text-sky-700 mb-6 text-center">Internships</h3>
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">Software Development Intern</h4>
+                        <p class="text-sky-600 font-medium mb-1">Techno Incubator, Sri Sairam Institutions</p>
+                        <p class="text-sm text-slate-500 mb-3">Jan 2024 – Mar 2024</p>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
+                            <li>Contributed to S2T event projects like Trampoline, Cycle Rush, and Harvest Rush, integrating hardware and ML.</li>
+                            <li>Improved teamwork and problem-solving through cross-functional collaboration.</li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">Software Development Intern</h4>
+                        <p class="text-sky-600 font-medium mb-1">Techno Incubator, Sri Sairam Institutions</p>
+                        <p class="text-sm text-slate-500 mb-3">Jun 2024 – Aug 2024</p>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600">
+                            <li>Collaborated on an AR client project using Unity.</li>
+                            <li>Delivered a fully functional application meeting client expectations.</li>
+                            <li>Focused on user-friendly design and efficient functionality.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-2xl font-semibold text-sky-700 mb-6 text-center">Projects</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">AI-Driven Client Application (2024)</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600 mt-2">
+                            <li>Developed an AI-based application to enhance client interactions using Python and ML.</li>
+                            <li>Focused on usability and performance.</li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">Gamified Education Platform for School Students (2024)</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600 mt-2">
+                            <li>Created an interactive AR learning platform using Unity and C#.</li>
+                            <li>Aimed at improving student engagement and retention.</li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">Hardware-Integrated Quiz Software (2024)</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600 mt-2">
+                            <li>Designed a quiz system integrating Unity software with external hardware.</li>
+                            <li>Made learning interactive and engaging.</li>
+                        </ul>
+                    </div>
+                    <div class="card p-6">
+                        <h4 class="text-lg font-semibold text-slate-800">AR Projects for Jamboree Event, Tiruchy (2024)</h4>
+                        <ul class="list-disc list-inside space-y-1 text-sm text-slate-600 mt-2">
+                            <li>Showcased projects like AR Balloon Pop, AR Dance, and AR Hurdle Run.</li>
+                            <li>Gained recognition for innovation.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="achievements" class="py-16 bg-white">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12 section-title">Achievements</h2>
+            <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">A few highlights and recognitions from my journey so far, reflecting my commitment and innovative contributions.</p>
+            <div class="max-w-2xl mx-auto">
+                <ul class="list-none space-y-4">
+                    <li class="card p-4 flex items-center">
+                        <span class="text-sky-500 text-2xl mr-3">🏆</span>
+                        <p class="text-slate-600">Recognized at the Jamboree event in Tiruchy for innovative AR projects (2024).</p>
+                    </li>
+                    <li class="card p-4 flex items-center">
+                        <span class="text-sky-500 text-2xl mr-3">💼</span>
+                        <p class="text-slate-600">Successfully delivered an AR client project during internship.</p>
+                    </li>
+                    <li class="card p-4 flex items-center">
+                        <span class="text-sky-500 text-2xl mr-3">📜</span>
+                        <p class="text-slate-600">Completed certifications in Unity and Python.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="hobbies" class="py-16">
+            <h2 class="text-3xl font-bold text-center text-slate-800 mb-12 section-title">Hobbies & Interests</h2>
+             <p class="text-center text-slate-600 mb-10 max-w-2xl mx-auto">Beyond technology, these are a few of my personal interests that help me relax and gain new perspectives.</p>
+            <div class="flex justify-center space-x-8 text-center">
+                <div class="card p-6 w-1/3 md:w-1/4">
+                    <span class="text-4xl">🕶️</span>
+                    <p class="mt-2 text-slate-600">Exploring AR/VR</p>
+                </div>
+                <div class="card p-6 w-1/3 md:w-1/4">
+                    <span class="text-4xl">🎵</span>
+                    <p class="mt-2 text-slate-600">Listening to Music</p>
+                </div>
+                <div class="card p-6 w-1/3 md:w-1/4">
+                    <span class="text-4xl">♟️</span>
+                    <p class="mt-2 text-slate-600">Playing Chess</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="bg-slate-800 text-stone-200 py-16 text-center">
+        <h2 class="text-3xl font-bold mb-8 section-title text-white border-sky-500">Get In Touch</h2>
+        <p class="mb-2">Dinesh Kumar K</p>
+        <p class="mb-2">📧 <a href="mailto:Dineshofficial20472@gmail.com" class="hover:text-sky-400">Dineshofficial20472@gmail.com</a></p>
+        <p class="mb-2">📞 <a href="tel:679250985" class="hover:text-sky-400">679250985</a></p>
+        <p class="mb-2">📍 1/71, 8th Street, Thiruninravur, Thiruvallur District</p>
+        <p class="mb-6">🔗 <a href="https://linkedin.com/dineshkumar" target="_blank" rel="noopener noreferrer" class="hover:text-sky-400">linkedin.com/dineshkumar</a></p>
+        <p class="text-sm text-stone-400">&copy; <span id="currentYear"></span> Dinesh Kumar K. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            // Active navigation link highlighting
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('header nav a');
+
+            function changeNav() {
+                let index = sections.length;
+                while(--index && window.scrollY + 100 < sections[index].offsetTop) {}
+                
+                navLinks.forEach((link) => link.classList.remove('active'));
+                // Ensure the link exists before trying to add 'active' class
+                if (navLinks[index]) {
+                     const activeLink = document.querySelector('header nav a[href="#' + sections[index].id + '"]');
+                     if(activeLink) activeLink.classList.add('active');
+                } else if (navLinks[0] && sections[0] && window.scrollY < sections[0].offsetTop + sections[0].offsetHeight - 100) { 
+                    // Special case for the first link if near top or above first section
+                     const homeLink = document.querySelector('header nav a[href="#home"]');
+                     if(homeLink) homeLink.classList.add('active');
+                }
+            }
+
+            changeNav(); // Initial call
+            window.addEventListener('scroll', changeNav);
+
+            // Chart.js: Experience Distribution
+            const internshipCount = 2; 
+            const projectCount = 4; 
+
+            const ctx = document.getElementById('experienceChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Internships', 'Projects'],
+                    datasets: [{
+                        label: 'Experience Distribution',
+                        data: [internshipCount, projectCount],
+                        backgroundColor: [
+                            'rgba(59, 130, 246, 0.7)', // blue-500
+                            'rgba(14, 165, 233, 0.7)'  // sky-500
+                        ],
+                        borderColor: [
+                            'rgba(59, 130, 246, 1)',
+                            'rgba(14, 165, 233, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                color: '#475569' // slate-600
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed;
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
